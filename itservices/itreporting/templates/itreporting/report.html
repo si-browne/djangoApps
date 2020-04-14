@@ -1,0 +1,31 @@
+<! DOCTYPE html>
+<html>
+<head>
+    <title> Student IT Services - Report</title>
+</head>
+<body>
+
+    {% extends "itreporting/base.html" %}
+    
+    {% block content %}
+
+    <h1>Issues Reported (for loop)</h1>
+    {% for issue in issues %}
+    <article class="media content-section">
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2" href="#">{{ issue.name }} ({{issue.course}})</a>
+            <small class="text-muted">{{ issue.date}}</small>
+          </div>
+
+          <h2><a class="article-title" href="{% url 'login' %}">{{ issue.itype  }} in {{issue.room}}</a></h2>
+          <p class="article-content">{{ issue.details }}</p>
+      
+        </div>
+    </article>
+    <hr>
+    {% endfor %}
+
+    {% endblock content %}
+</body>
+</html>
