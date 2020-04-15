@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.db import models
+from django.views.generic import ListView, DetailView
 #from django.http import HttpResponse (no longer needed )
 #create your views here.
 
@@ -26,3 +27,12 @@ def contact(request):
 
 def report(request):
     return render(request, 'itreporting/report.html')#pointing home to HTML file report.html
+
+#class PostListView(ListView):
+    #model = Issue
+    #template_name = 'itreporting/report.html'
+    #context_object_name = 'issues'
+    #ordering = ['-date_submitted']
+
+#class PostDetailView(DetailView):
+    #model = Issue

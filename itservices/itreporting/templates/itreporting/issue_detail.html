@@ -9,23 +9,24 @@
     
     {% block content %}
 
-    <h1>Issues Reported (for loop)</h1>
-    {% for issue in issues %}
+    <h1>IT Issue Reported</h1>
     <article class="media content-section">
       <img class="rounded-circle article-img" src="{{ issue.author.profile.image.url}}"/>
         <div class="media-body">
           <div class="article-metadata">
-            <a class="mr-2" href="#">{{ issue.name }} ({{issue.course}})</a>
-            <small class="text-muted">{{ issue.date}}</small>
+            <h2 class="article-title">{{ object.type }} Issue in Room {{object.room}}</h2>
+            <small class="text-muted">{{ object.date}}</small>
           </div>
+          
 
-          <h2><a class="article-title" href="{% url 'login' %}">{{ issue.itype  }} in {{issue.room}}</a></h2>
-          <p class="article-content">{{ issue.details }}</p>
+          <h3><a class="article-title" href="{% url 'issue-detail' issue.id %}">{{ object.type }} Issue in Room {{object.room}}</a></h3>
+
+          <p class="article-content">{{ object.details }}</p>
       
         </div>
     </article>
     <hr>
-    {% endfor %}
+
 
     {% endblock content %}
 </body>
